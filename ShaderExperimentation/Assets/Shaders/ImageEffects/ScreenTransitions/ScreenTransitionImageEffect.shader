@@ -1,6 +1,9 @@
 Shader "Hidden/ScreenTransitionImageEffect" {
     Properties {
         _MainTex ("Texture", 2D) = "white" {}
+        _TransitionTex ("Transition Texture", 2D) = "white" {}
+        _Cutoff ("Cutoff", Range(0, 1)) = 0
+        _CutoffColor ("Cutoff Color", color) = (0, 0, 0, 0)
     }
 
     SubShader {
@@ -31,25 +34,16 @@ Shader "Hidden/ScreenTransitionImageEffect" {
             }
 
             sampler2D _MainTex;
-            float4 _MainTex_TexelSize;
-
-            float4 boxBlur(sampler2D tex, float2 uv, float4 size) {
-                float4 c = tex2D(tex, uv + float2(-size.x, -size.y))
-                         + tex2D(tex, uv + float2(-size.x, 0))
-                         + tex2D(tex, uv + float2(-size.x, size.y))
-                         + tex2D(tex, uv + float2(0, -size.y))
-                         + tex2D(tex, uv + float2(0, 0))
-                         + tex2D(tex, uv + float2(0, size.y))
-                         + tex2D(tex, uv + float2(size.x, -size.y))
-                         + tex2D(tex, uv + float2(size.x, 0))
-                         + tex2D(tex, uv + float2(size.x, size.y));
-
-                return c / 9;
-            }
+            sampler2D _TransitionTex;
+            float _Cutoff;
+            float4 _CutoffColor;
 
             fixed4 frag(VertOut i) : SV_Target{
-                fixed4 col = boxBlur(_MainTex, i.uv, _MainTex_TexelSize);
-                return col;
+                float transVal = tex2D(_TransitionTex, i.uv).r;
+
+                if (transVal < _Cutoff) {
+                    return _CutoffColor;
+                } return tex2D(_MainTex, i.uv);
             }
             ENDCG
         }
