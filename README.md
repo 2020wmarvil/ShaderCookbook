@@ -5,7 +5,7 @@ Shaders ToDo:
 - Rainbow Plasma
 - Emission outline for Cubes
 - Transparent box with edges
-- Bubble Surface
+- Bubble Surface (with Metaballs)
 - Pixellation 
 - Bleach spiritual pressure
 - Outlines - https://alexanderameye.github.io/notes/rendering-outlines/
