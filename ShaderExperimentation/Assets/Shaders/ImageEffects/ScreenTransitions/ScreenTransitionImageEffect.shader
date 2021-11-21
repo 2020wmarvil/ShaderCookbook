@@ -4,6 +4,7 @@ Shader "Hidden/ScreenTransitionImageEffect" {
         _TransitionTex ("Transition Texture", 2D) = "white" {}
         _Cutoff ("Cutoff", Range(0, 1)) = 0
         _CutoffColor ("Cutoff Color", color) = (0, 0, 0, 0)
+        _Invert ("Invert", Range(0, 1)) = 0
     }
 
     SubShader {
@@ -37,13 +38,22 @@ Shader "Hidden/ScreenTransitionImageEffect" {
             sampler2D _TransitionTex;
             float _Cutoff;
             float4 _CutoffColor;
+            float _Invert;
 
             fixed4 frag(VertOut i) : SV_Target{
-                float transVal = tex2D(_TransitionTex, i.uv).r;
+                float transVal;
+                
+                if (_Invert == 0) {
+                    transVal = tex2D(_TransitionTex, i.uv).r;
+                } else {
+                    transVal = 1 - tex2D(_TransitionTex, i.uv).r;
+                }
 
-                if (transVal < _Cutoff) {
+                if (_Cutoff > transVal || _Cutoff == 1) {
                     return _CutoffColor;
-                } return tex2D(_MainTex, i.uv);
+                } 
+                
+                return tex2D(_MainTex, i.uv);
             }
             ENDCG
         }

@@ -30,6 +30,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _DistortionDamper: 15
-    - _DistortionSpreader: 100
+    - _DistortionSpreader: 411.43
+    - _TimeDamper: 0.06
     m_Colors: []
   m_BuildTextureStacks: []
