@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SimpleWatermat
+  m_Shader: {fileID: 4800000, guid: 2dce86a451a3eff4c89b454c5a183ad5, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _CellDensity: 9.81
+    - _FoamIntensity: 30
+    - _RippleIntensity: 4.53
+    - _ShearStrength: 1.94
+    - _WaveScale: 11.7
+    - _WaveSize: 0.15
+    - _WaveSpeed: 0.05
+    m_Colors:
+    - _RippleColor: {r: 1.0841748, g: 1.1504298, b: 1.1504298, a: 0.39607844}
+    - _WaterColor: {r: 0.2088, g: 0.87, b: 0.85069495, a: 0.4}
+  m_BuildTextureStacks: []
