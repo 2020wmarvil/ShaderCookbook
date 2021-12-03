@@ -42,19 +42,31 @@
 
 ### Movie Wipes
 
-| ![gif](https://github.com/2020wmarvil/UnrealShaderTechniques/blob/main/gifs/sketch.gif) | 
+| ![Movie wipes with arbitrary gradient mask](https://github.com/2020wmarvil/ShaderCookbook/blob/main/gifs/MovieWipe_LeftTORight.gif) | 
 |:--:| 
 | *Movie wipes with arbitrary gradient mask* |
 
+| ![Movie wipe from corners](https://github.com/2020wmarvil/ShaderCookbook/blob/main/gifs/MovieWipe_Corners.gif) | 
+|:--:| 
+| *Movie wipe from corners* |
+
+| ![Movie wipe with noise texture](https://github.com/2020wmarvil/ShaderCookbook/blob/main/gifs/MovieWipe_Noise.gif) | 
+|:--:| 
+| *Movie wipe with noise texture* |
+
+| ![Movie wipe from sides](https://github.com/2020wmarvil/ShaderCookbook/blob/main/gifs/MovieWipe_Sides.gif) | 
+|:--:| 
+| *Movie wipe from sides* |
+
 ### Blur Effect
 
-| ![gif](https://github.com/2020wmarvil/UnrealShaderTechniques/blob/main/gifs/sketch.gif) | 
+| ![Blur Post-Process Effect](https://github.com/2020wmarvil/ShaderCookbook/blob/main/gifs/Blur.png) | 
 |:--:| 
 | *Blur Post-Process effect* |
 
 ### Full-Screen Wave
 
-| ![gif](https://github.com/2020wmarvil/UnrealShaderTechniques/blob/main/gifs/sketch.gif) | 
+| ![Full-Screen Wave Post-Process effect](https://github.com/2020wmarvil/ShaderCookbook/blob/main/gifs/FullScreenWave.gif) | 
 |:--:| 
 | *Full-Screen Wave Post-Process effect* |
 
