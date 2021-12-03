@@ -4,9 +4,29 @@
 
 ### Simple Water
 
-| ![gif](https://github.com/2020wmarvil/UnrealShaderTechniques/blob/main/gifs/sketch.gif) | 
+| ![Transparent Quad](https://github.com/2020wmarvil/ShaderCookbook/blob/main/gifs/SimpleWater_Transparent.png) | 
 |:--:| 
-| *Cartoony Water Shader* |
+| *Transparent Quad* |
+
+| ![Vorononi NOise](https://github.com/2020wmarvil/ShaderCookbook/blob/main/gifs/SimpleShader_Voronoi.gif) | 
+|:--:| 
+| *Voronoi Noise* |
+
+| ![Ripples with Radial Shear](https://github.com/2020wmarvil/ShaderCookbook/blob/main/gifs/SimpleWater_Ripples.gif) | 
+|:--:| 
+| *Ripples with Radial Shear* |
+
+| ![Gradient Noise for HeightMap](https://github.com/2020wmarvil/ShaderCookbook/blob/main/gifs/SimpleWater_NoiseHeightMap.gif) | 
+|:--:| 
+| *Gradient Noise for HeightMap* |
+
+| ![Foam Depth Mask](https://github.com/2020wmarvil/ShaderCookbook/blob/main/gifs/SimpleWater_FoamMask.png) | 
+|:--:| 
+| *Foam Depth Mask* |
+
+| ![Foam+Waves](https://github.com/2020wmarvil/ShaderCookbook/blob/main/gifs/SimpleShader_WavesFoam.gif) | 
+|:--:| 
+| *Foam + Waves* |
 
 ### Fresnel Effect
 
