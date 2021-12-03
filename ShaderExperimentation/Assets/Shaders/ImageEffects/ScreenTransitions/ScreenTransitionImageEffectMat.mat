@@ -24,7 +24,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TransitionTex:
-        m_Texture: {fileID: 2800000, guid: ec2e6a6dc6c839d42bda5f50a544baac, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0f9829e3c1967a84c9f9ff3b548b9dba, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
@@ -32,5 +32,5 @@ Material:
     - _Cutoff: 0
     - _Invert: 0
     m_Colors:
-    - _CutoffColor: {r: 1, g: 0, b: 0, a: 1}
+    - _CutoffColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

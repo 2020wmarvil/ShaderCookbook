@@ -29,9 +29,9 @@ Material:
     - _FoamIntensity: 30
     - _RippleIntensity: 4.53
     - _ShearStrength: 1.94
-    - _WaveScale: 11.7
-    - _WaveSize: 0.15
-    - _WaveSpeed: 0.05
+    - _WaveScale: 41.4
+    - _WaveSize: 0.2
+    - _WaveSpeed: 0.01
     m_Colors:
     - _RippleColor: {r: 1.0841748, g: 1.1504298, b: 1.1504298, a: 0.39607844}
     - _WaterColor: {r: 0.2088, g: 0.87, b: 0.85069495, a: 0.4}
