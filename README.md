@@ -30,11 +30,11 @@
 
 ### Fresnel Effect
 
-| ![gif](https://github.com/2020wmarvil/UnrealShaderTechniques/blob/main/gifs/sketch.gif) | 
+| ![Opaque Fresnel Effect](https://github.com/2020wmarvil/ShaderCookbook/blob/main/gifs/xbtfR7fFFh.png) | 
 |:--:| 
 | *Opaque Fresnel Effect* |
 
-| ![gif](https://github.com/2020wmarvil/UnrealShaderTechniques/blob/main/gifs/sketch.gif) | 
+| ![Transparent Fresnel Effect](https://github.com/2020wmarvil/ShaderCookbook/blob/main/gifs/lGfZfxAPGb.png) | 
 |:--:| 
 | *Transparent Fresnel Effect* |
 
