@@ -1,4 +1,4 @@
-Shader "Unlit/PhongShading" {
+Shader "Unlit/BlinnPhongShading" {
     Properties {
         _MainTex ("Texture", 2D) = "white" {}
         _Gloss ("Glossiness", Float) = 1
@@ -56,11 +56,12 @@ Shader "Unlit/PhongShading" {
                 float3 N = normalize(i.normal);
                 float3 L = _WorldSpaceLightPos0.xyz;
 
-                float3 diffuseLight = saturate(dot(N, L)) * _LightColor0.rgb;
+                float lambert = saturate(dot(N, L));
+                float3 diffuseLight = lambert * _LightColor0.xyz;
 
                 float3 V = normalize(_WorldSpaceCameraPos - i.worldPos);
-                float3 R = reflect(-L, N); // reflect Light across Normal
-                float3 specularLight = saturate(dot(V, R));
+                float3 H = normalize(V + L);
+                float3 specularLight = saturate(dot(H, N)) * (lambert > 0);
 
                 specularLight = pow(specularLight, _Gloss); // specular exponent
 
