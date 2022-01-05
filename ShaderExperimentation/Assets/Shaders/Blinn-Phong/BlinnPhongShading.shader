@@ -1,7 +1,8 @@
 Shader "Unlit/BlinnPhongShading" {
     Properties {
         _MainTex ("Texture", 2D) = "white" {}
-        _Gloss ("Glossiness", Float) = 1
+        _Color ("Surface Color", Color) = (1, 1, 1, 1)
+        _Gloss ("Glossiness", Range(0, 1)) = 1
     }
     SubShader {
         Tags { "RenderType"="Opaque" }
@@ -30,24 +31,14 @@ Shader "Unlit/BlinnPhongShading" {
             };
 
             sampler2D _MainTex;
+            float4 _Color;
             float _Gloss;
-            float4 _MainTex_ST;
-
-            float4 _AmbientColor;
-            float _AmbientIntensity;
-            float4 _DiffuseColor;
-            float _DiffuseIntensity;
-            float4 _SpecularColor;
-            float _SpecularIntensity;
-
-            float3 _LightPos;
-            float4 _LightColor;
 
             VertOut vert (VertIn v) {
                 VertOut o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.normal = UnityObjectToWorldNormal(v.normal);
-                o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+                o.uv = v.uv;
                 o.worldPos = mul(unity_ObjectToWorld, v.vertex);
                 return o;
             }
@@ -63,9 +54,11 @@ Shader "Unlit/BlinnPhongShading" {
                 float3 H = normalize(V + L);
                 float3 specularLight = saturate(dot(H, N)) * (lambert > 0);
 
-                specularLight = pow(specularLight, _Gloss); // specular exponent
+                float specularExponent = exp2(_Gloss * 6 + 1); // magic numbers from Freya Holmer
+                specularLight = pow(specularLight, specularExponent); 
+                specularLight *= _LightColor0.xyz;
 
-                return float4(diffuseLight + specularLight, 1);
+                return float4(_Color * diffuseLight + specularLight, 1);
             }
             ENDCG
         }
