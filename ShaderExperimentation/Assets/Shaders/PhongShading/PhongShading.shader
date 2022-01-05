@@ -1,6 +1,7 @@
 Shader "Unlit/PhongShading" {
     Properties {
         _MainTex ("Texture", 2D) = "white" {}
+        _Gloss ("Glossiness", Float) = 1
     }
     SubShader {
         Tags { "RenderType"="Opaque" }
@@ -12,6 +13,8 @@ Shader "Unlit/PhongShading" {
             #pragma fragment frag
 
             #include "UnityCG.cginc"
+            #include "Lighting.cginc"
+            #include "AutoLight.cginc"
 
             struct VertIn {
                 float4 vertex : POSITION;
@@ -27,6 +30,7 @@ Shader "Unlit/PhongShading" {
             };
 
             sampler2D _MainTex;
+            float _Gloss;
             float4 _MainTex_ST;
 
             float4 _AmbientColor;
@@ -42,16 +46,25 @@ Shader "Unlit/PhongShading" {
             VertOut vert (VertIn v) {
                 VertOut o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
-                o.normal = normalize(mul(float4(v.normal, 0.0), unity_WorldToObject).xyz);
+                o.normal = UnityObjectToWorldNormal(v.normal);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
                 o.worldPos = mul(unity_ObjectToWorld, v.vertex);
                 return o;
             }
 
-            fixed4 frag (VertOut i) : SV_Target {
-                fixed4 col = tex2D(_MainTex, i.uv);
+            fixed4 frag(VertOut i) : SV_Target{
+                float3 N = normalize(i.normal);
+                float3 L = _WorldSpaceLightPos0.xyz;
 
-                return col;
+                float3 diffuseLight = saturate(dot(N, L)) * _LightColor0.rgb;
+
+                float3 V = _WorldSpaceCameraPos - i.worldPos;
+                float3 R = reflect(-L, N); // reflect Light across Normal
+                float3 specularLight = saturate(dot(V, R));
+
+                specularLight = pow(specularLight, _Gloss); // specular exponent
+
+                return float4(diffuseLight + specularLight, 1);
             }
             ENDCG
         }
