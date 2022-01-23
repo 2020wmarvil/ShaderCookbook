@@ -334,7 +334,7 @@ MonoBehaviour:
   shellTextureCS: {fileID: 7200000, guid: f2f55c07e6620a847aabc1e358cada0b, type: 3}
   renderingMaterial: {fileID: 2100000, guid: 75af36ecbe87a1f48a324331c1d33f99, type: 2}
   layers: 200
-  heightOffset: 0.2
+  heightOffset: 0.1
 --- !u!64 &723202245
 MeshCollider:
   m_ObjectHideFlags: 0
